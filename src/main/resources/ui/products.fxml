@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Pos?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.babyshop.ui.ProductController" alignment="CENTER" spacing="20" style="-fx-background-color: #f0f4f8; -fx-padding: 20;">
+    <Label text="Baby Shop Products" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+    <TableView fx:id="productsTable" prefWidth="600" style="-fx-background-color: #ffffff; -fx-border-color: #ccc; -fx-border-width: 1;">
+        <columns>
+            <TableColumn text="Product ID" fx:id="colProductId" prefWidth="150" />
+            <TableColumn text="Name" fx:id="colName" prefWidth="200" />
+            <TableColumn text="Price" fx:id="colPrice" prefWidth="100" />
+            <TableColumn text="Quantity" fx:id="colQuantity" prefWidth="100" />
+        </columns>
+    </TableView>
+
+    <HBox spacing="15" alignment="CENTER" style="-fx-background-color: #ffffff; -fx-border-radius: 5; -fx-padding: 20;">
+        <TextField fx:id="productIdField" promptText="Product ID" style="-fx-pref-width: 150; -fx-font-size: 14px;"/>
+        <TextField fx:id="productNameField" promptText="Product Name" style="-fx-pref-width: 150; -fx-font-size: 14px;"/>
+        <TextField fx:id="productPriceField" promptText="Price" style="-fx-pref-width: 150; -fx-font-size: 14px;"/>
+        <TextField fx:id="productQuantityField" promptText="Quantity" style="-fx-pref-width: 150; -fx-font-size: 14px;"/>
+        <Button text="Add Product" fx:id="btnAdd" onAction="#handleAddProduct" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10 20; -fx-font-size: 14px; -fx-border-radius: 5;"/>
+    </HBox>
+
+    <Label fx:id="messageLabel" text="" style="-fx-text-fill: green; -fx-font-size: 14px;"/>
+</VBox>

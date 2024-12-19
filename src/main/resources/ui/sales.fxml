@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Pos?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.babyshop.ui.SalesController" alignment="CENTER" spacing="30" style="-fx-background-color: #f8f9fa; -fx-padding: 30;">
+
+    <!-- Header Section -->
+    <HBox alignment="CENTER" spacing="10" style="-fx-background-color: #3498db; -fx-padding: 20; -fx-background-radius: 10;">
+        <Label text="Sales Dashboard" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;" />
+    </HBox>
+
+    <!-- Sales Data Table -->
+    <TableView fx:id="salesTable" prefWidth="800" style="-fx-background-color: #ffffff; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);">
+        <columns>
+            <TableColumn text="Sale ID" fx:id="colSaleId" prefWidth="150" />
+            <TableColumn text="Product" fx:id="colProduct" prefWidth="200" />
+            <TableColumn text="Amount" fx:id="colAmount" prefWidth="150" />
+            <TableColumn text="Date" fx:id="colDate" prefWidth="200" />
+        </columns>
+    </TableView>
+
+    <!-- Add Sale Form Section -->
+    <VBox alignment="CENTER" spacing="15" style="-fx-background-color: #ffffff; -fx-border-radius: 5; -fx-padding: 20; -fx-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);">
+        <HBox spacing="15" alignment="CENTER">
+            <TextField fx:id="productField" promptText="Product Name" style="-fx-pref-width: 250; -fx-font-size: 14px;"/>
+            <TextField fx:id="amountField" promptText="Amount" style="-fx-pref-width: 250; -fx-font-size: 14px;"/>
+            <DatePicker fx:id="saleDatePicker" promptText="Sale Date" style="-fx-pref-width: 250; -fx-font-size: 14px;"/>
+        </HBox>
+
+        <Button text="Add Sale" fx:id="btnAddSale" onAction="#handleAddSale" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10 20; -fx-font-size: 14px; -fx-border-radius: 5;"/>
+    </VBox>
+
+    <!-- Message Label -->
+    <Label fx:id="messageLabel" text="" style="-fx-text-fill: green; -fx-font-size: 14px;" />
+
+</VBox>
