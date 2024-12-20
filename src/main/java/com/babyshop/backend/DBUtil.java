@@ -12,7 +12,7 @@ import java.sql.Statement;
  * @created : 2024-12-19, Thursday
  **/
 public class DBUtil {
-    private static final String URL = "jdbc:mysql://localhost:3306/baby_shop";  // Updated URL
+    private static final String URL = "jdbc:mysql://localhost:3307/baby_shop";
     private static final String USER = "root";  // Replace with your MySQL username
     private static final String PASSWORD = "12345678";  // Replace with your MySQL password
 

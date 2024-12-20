@@ -1,0 +1,67 @@
+/* TableView container styling */
+.table-view {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
+    -fx-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Table header styling */
+.table-view .table-header {
+    -fx-background-color: #007bff; /* Blue background */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Styling for columns */
+.table-column {
+    -fx-alignment: CENTER;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-padding: 5px;
+    -fx-background-color: #ffffff;
+}
+
+/* Hover effect for table rows */
+.table-view .table-row-cell:hover {
+    -fx-background-color: #e0f7fa; /* Light blue background on hover */
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s ease;
+}
+
+/* Focused row highlight */
+.table-view .table-row-cell:focused {
+    -fx-background-color: #c8e6c9; /* Light green background on focus */
+}
+
+/* Styling for actions (icons or buttons) inside the last column */
+.table-view .table-column-cell {
+    -fx-padding: 5px;
+    -fx-alignment: CENTER;
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+/* Styling for the action icons (for update and delete buttons) */
+.table-view .table-column-cell .image-view {
+    -fx-cursor: pointer;
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+    -fx-transition: transform 0.3s ease;
+}
+
+.table-view .table-column-cell .image-view:hover {
+    -fx-scale-x: 1.4; /* Slight zoom on hover */
+    -fx-scale-y: 1.4;
+    -fx-transition: transform 0.3s ease;
+}
+
+/* Table row alternate color for better readability */
+.table-view .table-row-cell:nth-child(even) {
+    -fx-background-color: #f5f5f5; /* Light gray background for even rows */
+}
+
+.table-view .table-row-cell:nth-child(odd) {
+    -fx-background-color: #ffffff; /* White background for odd rows */
+}

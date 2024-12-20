@@ -1,0 +1,72 @@
+/* Table View - Base Styling */
+.table-view {
+    -fx-background-color: #f0faff; /* Light blue background */
+    -fx-border-color: #cce4ff; /* Light border color */
+    -fx-border-width: 1px;
+    -fx-background-radius: 8px; /* Rounded corners for modern look */
+}
+
+/* Focused State - Transparent Background */
+.table-view:focused {
+    -fx-background-color: transparent;
+}
+
+/* Column Header Background - Light Blue Gradient */
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #a3d8ff, #f0faff);
+    -fx-background-radius: 8px 8px 0 0; /* Rounded top corners */
+}
+
+/* Column Header Text - White */
+.table-view .column-header-background .label {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff; /* White text color */
+    -fx-font-weight: bold;
+}
+
+/* Column Header Styling - Transparent for Modern Look */
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+/* Table Cells - White Text */
+.table-view .table-cell {
+    -fx-text-fill: #333333; /* Dark text for readability */
+    -fx-font-size: 14px; /* Slightly larger text */
+    -fx-padding: 8px; /* More space in cells */
+}
+
+/* Table Row Cells - Light Blue Background */
+.table-row-cell {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 10px; /* Padding for better spacing */
+    -fx-border-color: #d1e7ff; /* Subtle blue border */
+}
+
+/* Odd Row Cells - Slightly Darker for Better Contrast */
+.table-row-cell:odd {
+    -fx-background-color: #f9f9f9; /* Light grey background */
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 10px; /* Padding for consistency */
+    -fx-border-color: #d1e7ff; /* Subtle blue border */
+}
+
+/* Selected Row Cells - Light Blue Highlight */
+.table-row-cell:selected {
+    -fx-background-color: #80c8ff; /* Soft light blue background */
+    -fx-background-radius: 5px; /* Rounded corners */
+    -fx-text-fill: #ffffff; /* White text color */
+    -fx-padding: 10px;
+}
+
+/* Hover Effects for Cells */
+.table-row-cell:hover {
+    -fx-background-color: #d6eaff; /* Lighter blue on hover */
+    -fx-border-color: #a3c9ff; /* Slightly darker blue on hover */
+}
+
+/* Styling for the Scroll Pane if Applicable */
+.table-view .scroll-bar {
+    -fx-background-color: #ffffff; /* White background for scroll bar */
+}

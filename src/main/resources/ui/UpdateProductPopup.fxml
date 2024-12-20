@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="20" style="-fx-background-color: #f0f4f8; -fx-padding: 20;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.babyshop.ui.UpdateProductPopupController">
+    <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Update Product" />
+
+    <HBox alignment="CENTER" spacing="15" style="-fx-background-color: #ffffff; -fx-border-radius: 5; -fx-padding: 20;">
+        <TextField fx:id="productIdField" promptText="Product ID" style="-fx-pref-width: 150; -fx-font-size: 14px;" />
+        <TextField fx:id="productNameField" promptText="Product Name" style="-fx-pref-width: 150; -fx-font-size: 14px;" />
+        <TextField fx:id="productPriceField" promptText="Price" style="-fx-pref-width: 150; -fx-font-size: 14px;" />
+        <TextField fx:id="productQuantityField" promptText="Quantity" style="-fx-pref-width: 150; -fx-font-size: 14px;" />
+        <Button fx:id="btnUpdate" onAction="#handleUpdateProduct" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10 20; -fx-font-size: 14px; -fx-border-radius: 5;" text="Update Product" />
+    </HBox>
+
+    <Label fx:id="messageLabel" style="-fx-text-fill: green; -fx-font-size: 14px;" text="" />
+</VBox>
