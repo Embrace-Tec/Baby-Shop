@@ -12,9 +12,8 @@ public class Dashboard {
         try {
             Stage stage = new Stage();
             BorderPane root = new BorderPane();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/dashboard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/Dashboard.fxml"));
 
-            // Load the dashboard layout
             root.setCenter(loader.load());
             Scene scene = new Scene(root, 1200, 800);
             stage.setTitle("Baby Shop POS Dashboard");

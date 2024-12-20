@@ -34,10 +34,6 @@ public class SalesController {
         String product = productField.getText();
         String amount = amountField.getText();
         String saleDate = saleDatePicker.getValue().toString();
-
-        // Here, add logic to insert the sale into the database or list
-
-        // Clear fields after adding sale
         productField.clear();
         amountField.clear();
         saleDatePicker.setValue(null);

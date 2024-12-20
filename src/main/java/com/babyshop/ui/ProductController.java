@@ -137,15 +137,13 @@ public class ProductController {
     @FXML
     private void handleUpdateProduct(Product product) {
         try {
-            // Load the FXML for the popup window
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/UpdateProductPopup.fxml"));
             VBox root = loader.load();
 
-            // Get the controller for the popup
             UpdateProductPopupController popupController = loader.getController();
-            popupController.initialize(product);  // Pass the product details to the popup
+            popupController.setProductController(this); // Pass the reference to this controller
+            popupController.initialize(product);
 
-            // Create a new stage for the popup
             Stage stage = new Stage();
             stage.setTitle("Update Product");
             stage.setScene(new Scene(root));
@@ -156,6 +154,7 @@ public class ProductController {
         }
     }
 
+
     public void refreshProducts() {
         loadProductsFromDatabase();
     }
@@ -164,11 +163,10 @@ public class ProductController {
     private void handleDeleteProduct(Product product) {
         System.out.println("Delete product: " + product.getName());
         try {
-            productDAO.deleteProduct(product.getProductId());  // Delete the product from the database
+            productDAO.deleteProduct(product.getProductId());
             messageLabel.setText("Product deleted successfully!");
             messageLabel.setStyle("-fx-text-fill: green;");
 
-            // Reload products from the database to update the TableView
             loadProductsFromDatabase();
         } catch (SQLException e) {
             messageLabel.setText("Error deleting product from the database.");

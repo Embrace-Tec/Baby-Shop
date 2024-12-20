@@ -12,7 +12,6 @@ import java.util.List;
  **/
 public class ProductDAO {
 
-    // Method to retrieve all products from the database
     public List<Product> getAllProducts() throws SQLException {
         List<Product> products = new ArrayList<>();
         String query = "SELECT * FROM products";
@@ -32,7 +31,6 @@ public class ProductDAO {
         return products;
     }
 
-    // Method to add a new product to the database
     public void addProduct(Product product) throws SQLException {
         String query = "INSERT INTO products (name, price, quantity) VALUES (?, ?, ?)";
         try (Connection connection = DBUtil.getConnection();
@@ -44,7 +42,6 @@ public class ProductDAO {
         }
     }
 
-    // Method to update an existing product in the database
     public void updateProduct(Product product) throws SQLException {
         String query = "UPDATE products SET name = ?, price = ?, quantity = ? WHERE product_id = ?";
         try (Connection connection = DBUtil.getConnection();
@@ -57,7 +54,6 @@ public class ProductDAO {
         }
     }
 
-    // Method to delete a product from the database
     public void deleteProduct(int productId) throws SQLException {
         String query = "DELETE FROM products WHERE product_id = ?";
         try (Connection connection = DBUtil.getConnection();

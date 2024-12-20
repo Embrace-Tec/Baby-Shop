@@ -17,7 +17,7 @@ import java.sql.SQLException;
  **/
 public class UpdateProductPopupController {
 
-    private ProductController productController; // Reference to the ProductController
+    private ProductController productController;
 
     @FXML private TextField productIdField;
     @FXML private TextField productNameField;
@@ -72,8 +72,15 @@ public class UpdateProductPopupController {
     }
 
     private void closePopup() {
+        if (productController != null) {
+            productController.refreshProducts();
+        }
         Stage stage = (Stage) btnUpdate.getScene().getWindow();
-
         stage.close();
+    }
+
+
+    public void setProductController(ProductController productController) {
+        this.productController = productController;
     }
 }

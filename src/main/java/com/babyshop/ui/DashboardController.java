@@ -11,7 +11,7 @@ import java.io.IOException;
 public class DashboardController {
 
     @FXML
-    private AnchorPane contentArea;  // Change to AnchorPane to match the FXML
+    private AnchorPane contentArea;
 
     @FXML
     public void showProducts() {
@@ -25,7 +25,7 @@ public class DashboardController {
 
     private void loadSection(String fxmlFile) {
         try {
-            contentArea.getChildren().clear();  // Clear the current content
+            contentArea.getChildren().clear();
             contentArea.getChildren().add(FXMLLoader.load(getClass().getResource(fxmlFile)));
         } catch (IOException e) {
             e.printStackTrace();

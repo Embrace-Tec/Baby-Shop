@@ -5,14 +5,14 @@ services:
     image: mysql:8.0
     container_name: mysql_babyshop
     ports:
-      - "3307:3306" # Map container's MySQL port to 3307 on the host
+      - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 12345678
       MYSQL_DATABASE: baby_shop
       MYSQL_USER: root
       MYSQL_PASSWORD: 12345678
     volumes:
-      - ./init-db:/docker-entrypoint-initdb.d # Mount the folder with SQL scripts
+      - ./init-db:/docker-entrypoint-initdb.d
     restart: always
 
 volumes:

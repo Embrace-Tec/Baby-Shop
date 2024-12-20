@@ -25,7 +25,6 @@ public class Product {
     private DoubleProperty price = new SimpleDoubleProperty();
     private IntegerProperty quantity = new SimpleIntegerProperty();
 
-    // Getter and setter methods for properties
     public int getProductId() {
         return productId.get();
     }

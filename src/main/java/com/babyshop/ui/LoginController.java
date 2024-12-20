@@ -19,12 +19,11 @@ public class LoginController {
 
     @FXML
     public void handleLogin() {
-        // Dummy login logic (replace with actual authentication logic)
         if (usernameField.getText().equals("admin") && passwordField.getText().equals("password")) {
             messageLabel.setText("");
             Stage stage = (Stage) usernameField.getScene().getWindow();
-            stage.close();  // Close the login window
-            new Dashboard().showDashboard();  // Open the dashboard
+            stage.close();
+            new Dashboard().showDashboard();
         } else {
             messageLabel.setText("Invalid credentials!");
         }
