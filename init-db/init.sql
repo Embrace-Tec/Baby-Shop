@@ -5,25 +5,25 @@ CREATE DATABASE IF NOT EXISTS baby_shop;
 USE baby_shop;
 
 -- Create the products table
-CREATE TABLE IF NOT EXISTS Products (
-                                        ProductID INT PRIMARY KEY AUTO_INCREMENT,
-                                        Name VARCHAR(255),
+CREATE TABLE IF NOT EXISTS products (
+                                        product_id INT PRIMARY KEY AUTO_INCREMENT,
+                                        name VARCHAR(255),
                                         price DECIMAL(10, 2)
 );
 
-CREATE TABLE Variations (
-                            VariationID INT PRIMARY KEY AUTO_INCREMENT,
-                            AttributeName VARCHAR(100), -- e.g., Size, Color
-                            AttributeValue VARCHAR(100) -- e.g., Large, Red
+CREATE TABLE variations (
+                            variation_id INT PRIMARY KEY AUTO_INCREMENT,
+                            attribute_name VARCHAR(100), -- e.g., Size, Color
+                            attribute_value VARCHAR(100) -- e.g., Large, Red
 );
 
-CREATE TABLE ProductVariationStock (
-                                   ProductVariationStockID INT PRIMARY KEY AUTO_INCREMENT,
-                                   ProductID INT,
-                                   VariationID INT,
-                                   StockLevel INT,
-                                   FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
-                                   FOREIGN KEY (VariationID) REFERENCES Variations(VariationID)
+CREATE TABLE product_variation_stock (
+                                   product_variation_stock_id INT PRIMARY KEY AUTO_INCREMENT,
+                                   product_id INT,
+                                   variation_id INT,
+                                   stock_level INT,
+                                   FOREIGN KEY (product_id) REFERENCES products(product_id),
+                                   FOREIGN KEY (variation_id) REFERENCES variations(variation_id)
 );
 
 -- Create the sales table
