@@ -5,11 +5,25 @@ CREATE DATABASE IF NOT EXISTS baby_shop;
 USE baby_shop;
 
 -- Create the products table
-CREATE TABLE IF NOT EXISTS products (
-                                        product_id INT AUTO_INCREMENT PRIMARY KEY,
-                                        name VARCHAR(255) NOT NULL,
-                                        price DECIMAL(10, 2) NOT NULL,
-                                        quantity INT NOT NULL
+CREATE TABLE IF NOT EXISTS Products (
+                                        ProductID INT PRIMARY KEY AUTO_INCREMENT,
+                                        Name VARCHAR(255),
+                                        price DECIMAL(10, 2)
+);
+
+CREATE TABLE Variations (
+                            VariationID INT PRIMARY KEY AUTO_INCREMENT,
+                            AttributeName VARCHAR(100), -- e.g., Size, Color
+                            AttributeValue VARCHAR(100) -- e.g., Large, Red
+);
+
+CREATE TABLE ProductVariationStock (
+                                   ProductVariationStockID INT PRIMARY KEY AUTO_INCREMENT,
+                                   ProductID INT,
+                                   VariationID INT,
+                                   StockLevel INT,
+                                   FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
+                                   FOREIGN KEY (VariationID) REFERENCES Variations(VariationID)
 );
 
 -- Create the sales table
