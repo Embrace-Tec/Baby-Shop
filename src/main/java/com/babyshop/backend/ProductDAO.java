@@ -24,7 +24,7 @@ public class ProductDAO {
                 product.setProductId(resultSet.getInt("product_id"));
                 product.setName(resultSet.getString("name"));
                 product.setPrice(resultSet.getDouble("price"));
-                product.setQuantity(resultSet.getInt("quantity"));
+//                product.setQuantity(resultSet.getInt("quantity"));
                 products.add(product);
             }
         }
@@ -32,23 +32,23 @@ public class ProductDAO {
     }
 
     public void addProduct(Product product) throws SQLException {
-        String query = "INSERT INTO products (name, price, quantity) VALUES (?, ?, ?)";
+        String query = "INSERT INTO products (name, price) VALUES (?, ?)";
         try (Connection connection = DBUtil.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, product.getName());
             preparedStatement.setDouble(2, product.getPrice());
-            preparedStatement.setInt(3, product.getQuantity());
+//            preparedStatement.setInt(3, product.getQuantity());
             preparedStatement.executeUpdate();
         }
     }
 
     public void updateProduct(Product product) throws SQLException {
-        String query = "UPDATE products SET name = ?, price = ?, quantity = ? WHERE product_id = ?";
+        String query = "UPDATE products SET name = ?, price = ? WHERE product_id = ?";
         try (Connection connection = DBUtil.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, product.getName());
             preparedStatement.setDouble(2, product.getPrice());
-            preparedStatement.setInt(3, product.getQuantity());
+//            preparedStatement.setInt(3, product.getQuantity());
             preparedStatement.setInt(4, product.getProductId());
             preparedStatement.executeUpdate();
         }

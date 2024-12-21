@@ -11,13 +11,13 @@ CREATE TABLE IF NOT EXISTS products (
                                         price DECIMAL(10, 2)
 );
 
-CREATE TABLE variations (
+CREATE TABLE IF NOT EXISTS variations (
                             variation_id INT PRIMARY KEY AUTO_INCREMENT,
                             attribute_name VARCHAR(100), -- e.g., Size, Color
                             attribute_value VARCHAR(100) -- e.g., Large, Red
 );
 
-CREATE TABLE product_variation_stock (
+CREATE TABLE IF NOT EXISTS product_variation_stock (
                                    product_variation_stock_id INT PRIMARY KEY AUTO_INCREMENT,
                                    product_id INT,
                                    variation_id INT,
@@ -36,10 +36,10 @@ CREATE TABLE IF NOT EXISTS sales (
 );
 
 -- Optional: Insert sample data
-INSERT INTO products (name, price, quantity) VALUES
-                                                 ('Baby Stroller', 150.00, 20),
-                                                 ('Baby Bottle', 20.00, 50),
-                                                 ('Baby Crib', 300.00, 10);
+INSERT INTO products (name, price) VALUES
+                                                 ('Baby Stroller', 150.00),
+                                                 ('Baby Bottle', 20.00),
+                                                 ('Baby Crib', 300.00);
 
 INSERT INTO sales (product_id, quantity_sold) VALUES
                                                   (1, 2),

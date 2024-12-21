@@ -23,6 +23,11 @@ public class DashboardController {
         loadSection("/ui/sales.fxml");
     }
 
+    @FXML
+    void showVariations() {
+        loadSection("/ui/variations.fxml");
+    }
+
     private void loadSection(String fxmlFile) {
         try {
             contentArea.getChildren().clear();

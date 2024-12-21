@@ -46,7 +46,7 @@ public class ProductController {
         colProductId.setCellValueFactory(cellData -> cellData.getValue().productIdProperty().asObject());
         colName.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         colPrice.setCellValueFactory(cellData -> cellData.getValue().priceProperty().asObject());
-        colQuantity.setCellValueFactory(cellData -> cellData.getValue().quantityProperty().asObject());
+//        colQuantity.setCellValueFactory(cellData -> cellData.getValue().quantityProperty().asObject());
 
         // Setup the actions column with icons (update and delete buttons)
         colActions.setCellValueFactory(param -> null); // No data binding for actions column

@@ -23,7 +23,7 @@ public class Product {
     private IntegerProperty productId = new SimpleIntegerProperty();
     private StringProperty name = new SimpleStringProperty();
     private DoubleProperty price = new SimpleDoubleProperty();
-    private IntegerProperty quantity = new SimpleIntegerProperty();
+//    private IntegerProperty quantity = new SimpleIntegerProperty();
 
     public int getProductId() {
         return productId.get();
@@ -61,15 +61,15 @@ public class Product {
         return price;
     }
 
-    public int getQuantity() {
-        return quantity.get();
-    }
+//    public int getQuantity() {
+//        return quantity.get();
+//    }
 
-    public void setQuantity(int quantity) {
-        this.quantity.set(quantity);
-    }
+//    public void setQuantity(int quantity) {
+//        this.quantity.set(quantity);
+//    }
 
-    public IntegerProperty quantityProperty() {
-        return quantity;
-    }
+//    public IntegerProperty quantityProperty() {
+//        return quantity;
+//    }
 }
