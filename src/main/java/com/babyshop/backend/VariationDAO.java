@@ -3,6 +3,7 @@ package com.babyshop.backend;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * @author : Yasith Perera
  * @File: VariationDAO
@@ -28,13 +29,13 @@ public class VariationDAO {
         return variations;
     }
 
-    public void addVariation(Variation variation) throws SQLException {
+    public boolean addVariation(Variation variation) throws SQLException {
         String query = "INSERT INTO variations (attribute_name, attribute_value) VALUES (?, ?)";
         try (Connection connection = DBUtil.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, variation.getVariationType());
             preparedStatement.setString(2, variation.getVariationValue());
-            preparedStatement.executeUpdate();
+            return preparedStatement.executeUpdate() > 0;
         }
     }
 
@@ -44,6 +45,7 @@ public class VariationDAO {
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, variation.getVariationType());
             preparedStatement.setString(2, variation.getVariationValue());
+            preparedStatement.setInt(3, variation.getVariationId());
             preparedStatement.executeUpdate();
         }
     }

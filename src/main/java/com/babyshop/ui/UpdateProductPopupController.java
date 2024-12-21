@@ -38,7 +38,7 @@ public class UpdateProductPopupController {
         productIdField.setText(String.valueOf(product.getProductId()));
         productNameField.setText(product.getName());
         productPriceField.setText(String.valueOf(product.getPrice()));
-        productQuantityField.setText(String.valueOf(product.getQuantity()));
+//        productQuantityField.setText(String.valueOf(product.getQuantity()));
     }
 
     @FXML
@@ -53,7 +53,7 @@ public class UpdateProductPopupController {
             updatedProduct.setProductId(productId);
             updatedProduct.setName(name);
             updatedProduct.setPrice(price);
-            updatedProduct.setQuantity(quantity);
+//            updatedProduct.setQuantity(quantity);
 
             productDAO.updateProduct(updatedProduct);
 
@@ -83,4 +83,6 @@ public class UpdateProductPopupController {
     public void setProductController(ProductController productController) {
         this.productController = productController;
     }
+
+
 }

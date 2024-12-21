@@ -1,6 +1,5 @@
 package com.babyshop.ui;
 
-import com.babyshop.backend.Product;
 import com.babyshop.backend.Variation;
 import com.babyshop.backend.VariationDAO;
 import javafx.collections.FXCollections;
@@ -62,7 +61,26 @@ public class VariationController {
         variationTypeField.clear();
         variationValueField.clear();
 
-        messageLabel.setText("Variation added successfully!");
+        Variation variation=new Variation();
+        variation.setVariationType(variationType);
+        variation.setVariationValue(variationValue);
+
+        try {
+            boolean added = variationDAO.addVariation(variation);
+            if (added){
+                messageLabel.setText("Variation added successfully!");
+                messageLabel.setStyle("-fx-text-fill: green;");
+                loadVariationsFromDatabase();
+            }else{
+                messageLabel.setText("Variation adding failed!");
+                messageLabel.setStyle("-fx-text-fill: red;");
+            }
+        } catch (SQLException e) {
+            messageLabel.setText("Variation adding failed!");
+            messageLabel.setStyle("-fx-text-fill: red;");
+            throw new RuntimeException(e);
+        }
+
     }
 
     public void initialize() {
@@ -72,7 +90,7 @@ public class VariationController {
 
         // Setup the actions column with icons (update and delete buttons)
         colAction.setCellValueFactory(param -> null); // No data binding for actions column
-        colAction.setCellFactory(param -> new TableCell<Product, String>() {
+        colAction.setCellFactory(param -> new TableCell<Variation, String>() {
             @Override
             protected void updateItem(String item, boolean empty) {
                 super.updateItem(item, empty);
@@ -85,13 +103,13 @@ public class VariationController {
                     ImageView updateIcon = new ImageView(getClass().getResource("/images/update.png").toExternalForm());
                     updateIcon.setFitHeight(20);
                     updateIcon.setFitWidth(20);
-                    updateIcon.setOnMouseClicked(event -> handleUpdateProduct(getTableRow().getItem())); // Handle update
+                    updateIcon.setOnMouseClicked(event -> handleUpdateVariation(getTableRow().getItem())); // Handle update
 
                     // Create a delete icon
                     ImageView deleteIcon = new ImageView(getClass().getResource("/images/delete.png").toExternalForm());
                     deleteIcon.setFitHeight(20);
                     deleteIcon.setFitWidth(20);
-                    deleteIcon.setOnMouseClicked(event -> handleDeleteProduct(getTableRow().getItem())); // Handle delete
+                    deleteIcon.setOnMouseClicked(event -> handleDeleteVariation(getTableRow().getItem())); // Handle delete
 
                     actionBox.getChildren().addAll(updateIcon, deleteIcon);
                     setGraphic(actionBox);
@@ -119,7 +137,7 @@ public class VariationController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/UpdateVariationPopup.fxml"));
             VBox root = loader.load();
 
-            UpdateProductPopupController popupController = loader.getController();
+            UpdateVariationPopupController popupController = loader.getController();
             popupController.setVariationController(this); // Pass the reference to this controller
             popupController.initialize(variation);
 
@@ -134,21 +152,21 @@ public class VariationController {
     }
 
 
-    public void refreshProducts() {
-        loadProductsFromDatabase();
+    public void refreshVariations() {
+        loadVariationsFromDatabase();
     }
 
     @FXML
-    private void handleDeleteProduct(Product product) {
-        System.out.println("Delete product: " + product.getName());
+    private void handleDeleteVariation(Variation variation) {
+        System.out.println("Delete variation: " + variation.getVariationType()+" "+variation.getVariationValue());
         try {
-            productDAO.deleteProduct(product.getProductId());
-            messageLabel.setText("Product deleted successfully!");
+            variationDAO.deleteVariation(variation.getVariationId());
+            messageLabel.setText("Variation deleted successfully!");
             messageLabel.setStyle("-fx-text-fill: green;");
 
-            loadProductsFromDatabase();
+            loadVariationsFromDatabase();
         } catch (SQLException e) {
-            messageLabel.setText("Error deleting product from the database.");
+            messageLabel.setText("Error deleting variation from the database.");
             messageLabel.setStyle("-fx-text-fill: red;");
         }
     }

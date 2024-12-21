@@ -106,7 +106,7 @@ public class ProductController {
             newProduct.setProductId(productId);
             newProduct.setName(name);
             newProduct.setPrice(price);
-            newProduct.setQuantity(quantity);
+//            newProduct.setQuantity(quantity);
 
             // Add the product to the database
             productDAO.addProduct(newProduct);
